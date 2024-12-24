@@ -1,0 +1,60 @@
+# Ignore Visual Studio files
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build directories
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]evelopment/
+[Dd]ist/
+[Dd]ist/
+[Dd]ebug/
+Release/
+x64/
+x86/
+
+# Ignore generated files
+*.db
+*.pdb
+*.log
+*.dmp
+*.idb
+*.aps
+*.bak
+*.cache
+*.ilk
+*.sdf
+*.vspscc
+*.vssscc
+
+# Ignore dependency directories
+/extern/glew/*
+/extern/glfw/*
+/extern/glm/*
+/extern/freetype/*
+
+# Ignore precompiled headers
+*.pch
+*.pdb
+*.obj
+
+# Ignore the output files
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+
+# Ignore other temporary files
+Thumbs.db
+ehthumbs.db
+
+# Ignore files created by FreeType builds
+freetype/bin/*
+freetype/include/*
+freetype/lib/*
