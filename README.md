@@ -54,7 +54,7 @@ Make sure you have the following installed on your system:
 
 ```bash
 git clone https://github.com/yourusername/3D-Billiards-Game.git
-cd 3D-Billiards-Game
+cd OpenGL-Billiards-3D/Project1
 ```
 
 2. Open the .sln file.
