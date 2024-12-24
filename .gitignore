@@ -58,3 +58,6 @@ ehthumbs.db
 freetype/bin/*
 freetype/include/*
 freetype/lib/*
+
+# Packages
+packages/
