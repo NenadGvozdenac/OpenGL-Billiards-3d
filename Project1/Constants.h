@@ -13,4 +13,5 @@ enum GameStatus {
 const float ballRadius = 0.08f;
 const float tableHeight = 0.057f;
 const float startCueAngle = 1.5708f;
+const float frameTime = 1.0f / 120.0f;
 #endif

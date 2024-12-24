@@ -1036,13 +1036,8 @@ private:
         resetCue();
     }
 
-    void updatePhysics() {
-        float currentTime = glfwGetTime();
-        float deltaTime = currentTime - lastFrameTime;
-        lastFrameTime = currentTime;
-
-        deltaTime = std::min(deltaTime, 0.016f);
-
+    void updatePhysics(float frameTime) {
+        float deltaTime = frameTime;
         bool allBallsStopped = true;
 
         if (!cueBall->pocketed) {
@@ -1363,19 +1358,27 @@ public:
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+        double lastTime = glfwGetTime();
+        double accumulator = 0.0;
+
         while (!glfwWindowShouldClose(window)) {
+            double currentTime = glfwGetTime();
+            accumulator += currentTime - lastTime;
+            lastTime = currentTime;
+
             handleInput();
             handlePauseInput(window);
             handleEndInput(window);
 
-            updatePhysics();
+            while (accumulator >= frameTime) {
+                updatePhysics(frameTime);
+                accumulator -= frameTime;
+            }
 
             render();
-
             glfwSwapBuffers(window);
             glfwPollEvents();
         }
-
         cleanup();
     }
 
