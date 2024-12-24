@@ -53,7 +53,7 @@ Make sure you have the following installed on your system:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/3D-Billiards-Game.git
+git clone https://github.com/NenadGvozdenac/OpenGL-Billiards-3d
 cd OpenGL-Billiards-3D/Project1
 ```
 
