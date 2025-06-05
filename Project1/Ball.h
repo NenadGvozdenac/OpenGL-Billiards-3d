@@ -40,6 +40,7 @@ struct Ball {
     std::unique_ptr<Shader> shader;
 
     Ball(float x, float y, float z, float r, glm::vec3 col, int num);
+
     void checkHolePocketed();
     void update(float deltaTime);
     bool checkCollision(Ball* other);

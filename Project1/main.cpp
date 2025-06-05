@@ -16,6 +16,18 @@
 #include "Button.h"
 #include "Constants.h"
 
+std::map<int, std::string> ballNames = {
+    {1, "Yellow"},
+    {2, "Blue"},
+    {3, "Red"},
+    {4, "Purple"},
+    {5, "Orange"},
+    {6, "Green"},
+    {7, "Brown"},
+    {8, "Black"},
+    {9, "Yellow Stripe"}
+};
+
 class BilliardsGame {
 private:
     GameStatus gameStatus;
@@ -263,20 +275,20 @@ private:
             glm::vec3(0.5f, 0.0f, 0.5f),    // 4-ball: Purple
             glm::vec3(1.0f, 0.5f, 0.0f),    // 5-ball: Orange
             glm::vec3(0.0f, 0.7f, 0.0f),    // 6-ball: Green
-            glm::vec3(0.5f, 0.0f, 0.0f),    // 7-ball: Maroon
+            glm::vec3(0.5f, 0.0f, 0.0f),    // 7-ball: Brown
             glm::vec3(0.0f, 0.0f, 0.0f),    // 8-ball: Black
             glm::vec3(1.0f, 1.0f, 0.4f)     // 9-ball: Yellow with white stripe
         };
 
         // Calculate positions for diamond rack formation
         float row_spacing = ballRadius * 2.1f;  // Slightly more than diameter for tight rack
-        float col_spacing = row_spacing * 0.866f;  // cos(30°) for equilateral triangle spacing
+        float col_spacing = row_spacing * 0.866f;  // cos(30 degrees) for equilateral triangle spacing
 
-        // Rack position (centered on the table, appropriate distance from cue ball)
+        // Rack position
         float rackCenterX = 1.0f;  // Positive X for opposite side from cue ball
         float rackCenterZ = 0.0f;  // Centered on Z axis
 
-        // Define rack positions (from front to back)
+        // Define rack positions
         std::vector<glm::vec2> rackPositions = {
             // Front (1-ball)
             glm::vec2(rackCenterX - col_spacing * 2, rackCenterZ),
@@ -660,7 +672,7 @@ private:
         const float cushionHeight = 0.02f;
         const float holeRadius = 0.15f;
 
-        // Hole positions (reused from hole setup)
+        // Hole positions
         std::vector<glm::vec2> holePositions = {
             glm::vec2(-2.0f, 1.0f),    // Top-left (0)
             glm::vec2(0.0f, 1.0f),     // Top-middle (1)
@@ -960,7 +972,7 @@ private:
         textRender->RenderText("RA 133/2021", 980.0f, 800.0f, 1.25f, glm::vec3(1.0f, 1.0f, 1.0f));
 
         textRender->RenderText("Current player: Player " + std::to_string(currentPlayer), 5.0f, 825.0f, 1.25f, glm::vec3(1.0f, 1.0f, 1.0f));
-        textRender->RenderText("Next ball: " + std::to_string(lowestBallNumber), 5.0f, 790.0f, 1.25f, glm::vec3(1.0f, 1.0f, 1.0f));
+        textRender->RenderText("Next ball: " + std::to_string(lowestBallNumber) + " [" + ballNames[lowestBallNumber] + "]", 5.0f, 790.0f, 1.25f, glm::vec3(1.0f, 1.0f, 1.0f));
         textRender->RenderText("Controls: ", 5.0f, 755.0f, 1.25f, glm::vec3(1.0f, 1.0f, 1.0f));
         textRender->RenderText("CTRL + 1, 2, 3, 4, 5 - Switch camera", 5.0f, 730.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
         textRender->RenderText("ALT + 1, 2, 3 - Zoom camera", 5.0f, 705.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));

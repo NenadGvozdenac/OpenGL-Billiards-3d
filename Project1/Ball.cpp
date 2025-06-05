@@ -16,9 +16,8 @@ Ball::Ball(float x, float y, float z, float r, glm::vec3 col, int num)
     setupBuffers();
 }
 
-// Add this to your Ball class
 void Ball::checkHolePocketed() {
-    // Hole positions (corners and middle pockets)
+    // Hole positions
     const std::vector<glm::vec2> holePositions = {
         glm::vec2(-2.0f, 1.0f),    // Top-left corner
         glm::vec2(0.0f, 1.0f),     // Top-middle

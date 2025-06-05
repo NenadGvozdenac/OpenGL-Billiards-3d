@@ -12,13 +12,10 @@
 
 TextRender::TextRender(const std::string& fontPath, const std::string& vertexShaderPath, const std::string& fragmentShaderPath, int fontSize) {
 
-    // Kreiraj šejder program
     shaderProgram = createShader(vertexShaderPath, fragmentShaderPath);
 
-    // Učitaj karaktere iz fonta
     loadCharacters(fontPath, fontSize);
 
-    // Kreiraj VAO i VBO za renderovanje teksta
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glBindVertexArray(VAO);
